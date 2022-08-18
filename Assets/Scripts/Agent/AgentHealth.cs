@@ -18,6 +18,7 @@ public class AgentHealth : MonoBehaviour
 
     private void OnMouseDown()
     {
+        ShowHealthbar();
         TakeDamage(1);
     }
 
@@ -43,5 +44,10 @@ public class AgentHealth : MonoBehaviour
     {
         isDead = true;
         Destroy(gameObject);
+    }
+
+    private void ShowHealthbar()
+    {
+        healthbar.gameObject.SetActive(true);
     }
 }
