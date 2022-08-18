@@ -13,17 +13,6 @@ public class Target : MonoBehaviour
         agentRenderer = GetComponent<Renderer>();
         originalColor = agentRenderer.material.color;
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnMouseEnter()
     {
         agentRenderer.material.color = Color.red;

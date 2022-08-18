@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 2067494148246499010}
   - component: {fileID: 430544032071686657}
   - component: {fileID: 387520527182339797}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3646364127021343272
 RectTransform:
   m_ObjectHideFlags: 0
