@@ -25,6 +25,7 @@ public class AgentSelection : MonoBehaviour
         InputManager.instance.playerControls.Player.LeftClick.performed += ctx => SelectObject();
     }
 
+    //Funkcja sprawdzaj¹ca czy zaznaczony objekt jest agentem.
     private void SelectObject()
     {
         RaycastHit hit;
@@ -51,6 +52,7 @@ public class AgentSelection : MonoBehaviour
         }
     }
 
+    //Odznaczenie aktualnie wybranego agenta
     private void DeselectObject()
     {
         if(currentSelectedAgent != null)
@@ -65,7 +67,7 @@ public class AgentSelection : MonoBehaviour
             Debug.Log("Deselecting");
         }
     }
-
+    //Wyœwietlanie informacji o agencie (zycie oraz nazwa)
     private void SelectObject(RaycastHit hit)
     {
         Debug.Log(hit.collider.name);

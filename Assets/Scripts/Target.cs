@@ -6,7 +6,8 @@ public class Target : MonoBehaviour
 {
     private Renderer agentRenderer;
     public Color originalColor;
-    // Start is called before the first frame update
+    
+    //Zmiana koloru agenta po najechaniu na niego kursorem
 
     private void Awake()
     {

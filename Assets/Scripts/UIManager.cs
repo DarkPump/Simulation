@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Button textButton;
     [SerializeField] TMP_InputField textBox;
 
+    //Uzupe³nienie pola tekstowego liczbami oraz marko polo
     public void PopulateTextBox()
     {
         for(int i = 1; i < 101; i++)

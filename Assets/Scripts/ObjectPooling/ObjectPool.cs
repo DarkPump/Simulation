@@ -13,6 +13,7 @@ public class ObjectPool
         availableObjects = new List<PoolableObject>(size);
     }
 
+    //Stworzenie instancji obiektu
     public static ObjectPool CreateInstance(PoolableObject prefab, int size)
     {
         ObjectPool pool = new ObjectPool(prefab, size);
@@ -21,7 +22,7 @@ public class ObjectPool
 
         return pool;
     }
-
+    //Stworzenie obiektu
     private void CreateObjects(Transform parent, int size)
     {
         for(int i = 0; i < size; i++)
@@ -31,12 +32,12 @@ public class ObjectPool
             poolableObject.gameObject.SetActive(false);
         }
     }
-
+    //Dodanie obiektu do puli
     public void ReturnObjectToPool(PoolableObject poolableObject)
     {
         availableObjects.Add(poolableObject);
     }
-
+    //Otrzymanie obiektu
     public PoolableObject GetObject()
     {
         if(availableObjects.Count > 0)

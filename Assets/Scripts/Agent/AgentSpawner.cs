@@ -14,6 +14,8 @@ public class AgentSpawner : MonoBehaviour
     private NavMeshTriangulation triangulation;
     private Dictionary<int, ObjectPool> agentObjectPools = new Dictionary<int, ObjectPool>();
 
+    //Spawnowanie agentów z wykorzystaniem object poolingu
+
     private void Awake()
     {
         for(int i = 0; i < agentPrefabs.Count; i++)
@@ -28,7 +30,7 @@ public class AgentSpawner : MonoBehaviour
 
         StartCoroutine(SpawnAgents());
     }
-
+    //Aktywowanie agentów co losow¹ liczbê sekund (kontrolowane z inspektora)
     private IEnumerator SpawnAgents()
     {
         int spawnedAgents = 0;
@@ -39,7 +41,7 @@ public class AgentSpawner : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
         }
     }
-
+    //Aktywowanie losowego prefabu jako agenta
     private void SpawnRandomAgent()
     {
         DoSpawnAgent(Random.Range(0, agentPrefabs.Count));
@@ -55,6 +57,7 @@ public class AgentSpawner : MonoBehaviour
 
             int vertexIndex = Random.Range(0, triangulation.vertices.Length);
             NavMeshHit hit;
+
             if (NavMesh.SamplePosition(triangulation.vertices[vertexIndex], out hit, 2f, 1))
             {
                 agent.agent.Warp(hit.position);

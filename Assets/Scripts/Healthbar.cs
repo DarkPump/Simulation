@@ -19,14 +19,14 @@ public class Healthbar : MonoBehaviour
     {
         text.text = transform.parent.name.ToLower();
     }
-
+    //Aktualizacja paska zdrowia
     public void UpdateHealthbar(float maxHealth, float currentHealth)
     {
         healthbar.fillAmount = currentHealth / maxHealth;
     }
 
 
-
+    //Ukierunkowania elementów ui w stronê kamery
     private void Update()
     {
         Vector3 v = mainCamera.transform.position - transform.position;
