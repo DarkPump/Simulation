@@ -48,11 +48,13 @@ public class UIManager : MonoBehaviour
         textButton.interactable = false;
     }
 
+    //Aktualizacja nazwy agenta w overlayu
     public void UpdateNameValue(string agentName)
     {
         nameValue.text = agentName;
     }
 
+    //Aktualizacja zycia agenta w overlayu
     public void UpdateHealthValue(int? maxHealth, int? currentHealth)
     {
         if (maxHealth.HasValue)

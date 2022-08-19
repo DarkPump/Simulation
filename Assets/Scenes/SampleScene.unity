@@ -555,7 +555,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -65.99994, y: -25}
+  m_AnchoredPosition: {x: -65.99994, y: -95}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!1 &396660783
@@ -1949,9 +1949,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b02c645ca2b9b94489899f2c3f60835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfAgentsToSpawn: 100
-  minSpawnDelay: 0
-  maxSpawnDelay: 1
+  numberOfAgentsToSpawn: 30
+  minSpawnDelay: 2
+  maxSpawnDelay: 10
   agentPrefabs:
   - {fileID: 430544032071686657, guid: 255e34a4d557aa7429d2e0f05eef2b82, type: 3}
   - {fileID: 430544032071686657, guid: cc2894ae82ab50b429337c820e96d349, type: 3}
@@ -1972,9 +1972,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   currentSelectedAgent: {fileID: 0}
-  currentAgentMaxHealth: 0
-  currentAgentCurrentHealth: 0
-  isCurrentAgentDead: 0
 --- !u!1 &2036529242
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,12 +9,9 @@ public class AgentMovement : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private float walkRadius = 1f;
 
-    private AgentAttack agentAttack;
-
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        agentAttack = GetComponent<AgentAttack>();
     }
 
     //Ruch do losowego punktu
@@ -40,23 +37,23 @@ public class AgentMovement : MonoBehaviour
     //Losowy punkt
     public Vector3 GetRandomPoint(Transform point = null, float radius = 0)
     {
-        Vector3 _point;
+        Vector3 v3Point;
 
-        if (RandomPoint(point == null ? transform.position : point.position, radius == 0 ? 1.0f : radius, out _point))
+        if (RandomPoint(point == null ? transform.position : point.position, radius == 0 ? 1.0f : radius, out v3Point))
         {
-            Debug.DrawRay(_point, Vector3.up, Color.black, 1);
+            Debug.DrawRay(v3Point, Vector3.up, Color.black, 1);
 
-            return _point;
+            return v3Point;
         }
 
         return point == null ? Vector3.zero : point.position;
     }
 
     //Wyœwietlenie zasiêgu generowania losowego punktu
-#if UNITY_EDITOR
+    #if UNITY_EDITOR
     private void OnDrawGizmos()
         {
-        Gizmos.color = Color.green;
+            Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, walkRadius);
         }
 

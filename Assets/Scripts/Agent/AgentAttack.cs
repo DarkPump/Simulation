@@ -6,11 +6,6 @@ public class AgentAttack : MonoBehaviour
 {
     [SerializeField] private int damage;
 
-    [SerializeField] private float knockbackDuration;
-    [SerializeField] private float knockbackForce;
-    [SerializeField] LayerMask agentLayer;
-    public float knockbackCounter;
-
     //Zadawanie obra¿eñ przy kontakcie z innym agentem
     private void OnTriggerStay(Collider other)
     {

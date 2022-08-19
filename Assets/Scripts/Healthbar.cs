@@ -26,13 +26,11 @@ public class Healthbar : MonoBehaviour
     }
 
 
-    //Ukierunkowania elementów ui w stronê kamery
+    //Ukierunkowanie elementów ui w stronê kamery
     private void Update()
     {
         Vector3 v = mainCamera.transform.position - transform.position;
         v.x = v.z = 0.0f;
         transform.LookAt(transform.position - mainCamera.transform.position);
-        //transform.LookAt(mainCamera.transform.position - v);
-        //transform.Rotate(0, 180, 0);
     }
 }

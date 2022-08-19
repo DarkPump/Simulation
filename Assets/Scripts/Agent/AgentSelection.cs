@@ -10,9 +10,6 @@ public class AgentSelection : MonoBehaviour
     private Camera mainCamera;
 
     public GameObject currentSelectedAgent;
-    public int currentAgentMaxHealth;
-    public int currentAgentCurrentHealth;
-    public bool isCurrentAgentDead;
     private AgentHealth agentHealth;
 
     private void Awake()
@@ -90,12 +87,9 @@ public class AgentSelection : MonoBehaviour
         currentSelectedAgent.transform.GetChild(0).gameObject.SetActive(true);
 
         agentHealth = currentSelectedAgent.GetComponent<AgentHealth>();
-        isCurrentAgentDead = agentHealth.isDead;
-        currentAgentMaxHealth = agentHealth.maxHealth;
-        currentAgentCurrentHealth = agentHealth.currentHealth;
 
         UIManager.instance.UpdateNameValue(currentSelectedAgent.name);
-        UIManager.instance.UpdateHealthValue(currentAgentMaxHealth, currentAgentCurrentHealth);
+        UIManager.instance.UpdateHealthValue(agentHealth.maxHealth, agentHealth.currentHealth);
     }
 
     //Odznaczenie agenta po jego œmierci
@@ -103,7 +97,8 @@ public class AgentSelection : MonoBehaviour
     {
         if(currentSelectedAgent != null)
         {
-            if(agentHealth.isDead)
+            UIManager.instance.UpdateHealthValue(agentHealth.maxHealth, agentHealth.currentHealth);
+            if (agentHealth.isDead)
             {
                 DeselectObject();
             }
