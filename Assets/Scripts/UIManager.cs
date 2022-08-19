@@ -9,6 +9,28 @@ public class UIManager : MonoBehaviour
     [SerializeField] Button textButton;
     [SerializeField] TMP_InputField textBox;
 
+    [SerializeField] TMP_Text healthValue;
+    [SerializeField] TMP_Text nameValue;
+
+    [SerializeField] AgentSelection agentSelection;
+
+    public static UIManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (instance != this)
+        {
+            Destroy(instance.gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     //Uzupe³nienie pola tekstowego liczbami oraz marko polo
     public void PopulateTextBox()
     {
@@ -24,5 +46,18 @@ public class UIManager : MonoBehaviour
                 textBox.text += i.ToString() + " ";
         }
         textButton.interactable = false;
+    }
+
+    public void UpdateNameValue(string agentName)
+    {
+        nameValue.text = agentName;
+    }
+
+    public void UpdateHealthValue(int? maxHealth, int? currentHealth)
+    {
+        if (maxHealth.HasValue)
+            healthValue.text = currentHealth + "/" + maxHealth;
+        else
+            healthValue.text = null;
     }
 }

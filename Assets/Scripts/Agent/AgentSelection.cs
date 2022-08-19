@@ -5,19 +5,30 @@ using UnityEngine.InputSystem;
 
 public class AgentSelection : MonoBehaviour
 {
-    [SerializeField] private GameObject currentSelectedAgent;
     [SerializeField] private float rayLength;
     [SerializeField] LayerMask layerMask;
     private Camera mainCamera;
+
+    public GameObject currentSelectedAgent;
+    public int currentAgentMaxHealth;
+    public int currentAgentCurrentHealth;
+    public bool isCurrentAgentDead;
+    private AgentHealth agentHealth;
 
     private void Awake()
     {
         InputManager.instance.EnablePlayerActionMap();
         mainCamera = Camera.main;
+        
     }
     private void Start()
     {
         InputManager.instance.playerControls.Player.LeftClick.performed += ctx => SelectObject();
+    }
+
+    private void Update()
+    {
+        DeselectDeadObject();
     }
 
     private void OnDestroy()
@@ -59,11 +70,15 @@ public class AgentSelection : MonoBehaviour
         {
             currentSelectedAgent.transform.GetChild(0).gameObject.SetActive(false);
             currentSelectedAgent = null;
+            UIManager.instance.UpdateNameValue(null);
+            UIManager.instance.UpdateHealthValue(null, null);
             Debug.Log("Deselecting");
         }
         else
         {
             currentSelectedAgent = null;
+            UIManager.instance.UpdateNameValue(null);
+            UIManager.instance.UpdateHealthValue(null, null);
             Debug.Log("Deselecting");
         }
     }
@@ -73,5 +88,25 @@ public class AgentSelection : MonoBehaviour
         Debug.Log(hit.collider.name);
         currentSelectedAgent = hit.collider.gameObject;
         currentSelectedAgent.transform.GetChild(0).gameObject.SetActive(true);
+
+        agentHealth = currentSelectedAgent.GetComponent<AgentHealth>();
+        isCurrentAgentDead = agentHealth.isDead;
+        currentAgentMaxHealth = agentHealth.maxHealth;
+        currentAgentCurrentHealth = agentHealth.currentHealth;
+
+        UIManager.instance.UpdateNameValue(currentSelectedAgent.name);
+        UIManager.instance.UpdateHealthValue(currentAgentMaxHealth, currentAgentCurrentHealth);
+    }
+
+    //Odznaczenie agenta po jego œmierci
+    private void DeselectDeadObject()
+    {
+        if(currentSelectedAgent != null)
+        {
+            if(agentHealth.isDead)
+            {
+                DeselectObject();
+            }
+        }
     }
 }

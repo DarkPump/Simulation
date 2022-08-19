@@ -6,7 +6,7 @@ public class AgentHealth : MonoBehaviour
 {
     public int maxHealth = 3;
     public int currentHealth;
-    private bool isDead = false;
+    [System.NonSerialized] public bool isDead = false;
     private bool isInvulnerable = false;
 
     [SerializeField] private float iFramesDuration;
@@ -36,6 +36,7 @@ public class AgentHealth : MonoBehaviour
         {
             if(!isDead)
             {
+                isDead = true;
                 Death();
             }
         }

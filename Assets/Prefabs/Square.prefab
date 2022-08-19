@@ -297,16 +297,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4009815659869638897}
-  - component: {fileID: 4760718013780947281}
+  - component: {fileID: 4009815659869638898}
   - component: {fileID: 4009815659869638899}
-  - component: {fileID: 3724272204023146971}
+  - component: {fileID: 7007798605863712300}
   - component: {fileID: 4009815659869638797}
   - component: {fileID: 4009815659869638798}
   - component: {fileID: 2067494148246499010}
   - component: {fileID: 430544032071686657}
-  - component: {fileID: 5769226804561648893}
-  - component: {fileID: 4388392361975014646}
-  - component: {fileID: -8336584422198856839}
+  - component: {fileID: 387520527182339797}
+  - component: {fileID: 5158063963018562112}
+  - component: {fileID: -8316977933131484246}
   m_Layer: 10
   m_Name: Square
   m_TagString: Agent
@@ -330,7 +330,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4760718013780947281
+--- !u!33 &4009815659869638898
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -380,7 +380,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3724272204023146971
+--- !u!65 &7007798605863712300
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -391,7 +391,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.1, y: 1, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &4009815659869638797
 NavMeshAgent:
@@ -411,8 +411,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1.9999999
-  m_BaseOffset: 0.99999994
+  m_Height: 1
+  m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &4009815659869638798
@@ -457,7 +457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 4009815659869638798}
   agent: {fileID: 4009815659869638797}
---- !u!114 &5769226804561648893
+--- !u!114 &387520527182339797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -473,7 +473,7 @@ MonoBehaviour:
   currentHealth: 0
   iFramesDuration: 1
   healthbar: {fileID: 7055293281434838254}
---- !u!114 &4388392361975014646
+--- !u!114 &5158063963018562112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -492,7 +492,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   knockbackCounter: 0
---- !u!54 &-8336584422198856839
+--- !u!54 &-8316977933131484246
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
